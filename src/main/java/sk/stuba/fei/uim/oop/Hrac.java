@@ -7,12 +7,33 @@ public class Hrac {
     private int peniaze;
     private int aktualnePolicko;
     private int kocka;
+    private int kolaVoVazeni;
 
     public String getMeno() {
         return meno;
     }
 
-    public Hrac(String meno, int peniaze, int aktualnePolicko) {
+    public int getPeniaze() {
+        return peniaze;
+    }
+
+    public void setPeniaze(int peniaze) {
+        this.peniaze = peniaze;
+    }
+
+    public int getKolaVoVazeni() {
+        return kolaVoVazeni;
+    }
+
+    public void setKolaVoVazeni(int kolaVoVazeni) {
+        this.kolaVoVazeni = kolaVoVazeni;
+    }
+
+    public void setAktualnePolicko(int aktualnePolicko) {
+        this.aktualnePolicko = aktualnePolicko;
+    }
+
+    public Hrac(String meno, int peniaze, int aktualnePolicko, int kolaVoVazeni) {
         this.meno = meno;
         this.peniaze = peniaze;
         this.aktualnePolicko = aktualnePolicko;

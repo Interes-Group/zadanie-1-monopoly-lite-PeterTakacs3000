@@ -5,6 +5,25 @@ import java.util.ArrayList;
 public class Monopoly {
 
     private ArrayList<Hrac> hraci = new ArrayList<>();
+    private ArrayList<Policko> policka = new ArrayList<>();
+    private ArrayList<Karta> kartySanca = new ArrayList<>();
+
+    public void nacitanieHry(){
+        for(int i = 0; i < 24; i++){
+            switch (i){
+                case 0:
+                    policka.add(new PolickoStart());
+                    break;
+                case 5:
+                    policka.add(new PolickoVazenie());
+                case 11:
+                    policka.add(new PolickoPolicia());
+                    break;
+                case 17:
+                    policka.add(new PolickoPlatbaDane());
+            }
+        }
+    }
 
     public void inicializaciaHracov(){
         boolean nekorektnyPocetHracov = true;
@@ -16,7 +35,7 @@ public class Monopoly {
         }
         for(int i = 0; i < pocetHracov; i++){
             String meno = KeyboardInput.readString("Zadajte meno " + (i+1) + ". hraca");
-            Hrac hrac = new Hrac(meno, 10000, 0);
+            Hrac hrac = new Hrac(meno, 10000, 0, 0);
             hraci.add(hrac);
         }
 
