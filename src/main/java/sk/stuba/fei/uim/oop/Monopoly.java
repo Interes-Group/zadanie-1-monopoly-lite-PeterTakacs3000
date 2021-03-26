@@ -50,15 +50,21 @@ public class Monopoly {
     }
 
     public void hraj(){
-        int i = 10;
         while (hraci.size() > 1){
+            int index = 0;
             for(var hrac : hraci){
                 hrac.hodiKockuAPosunieSa();
                 hrac.vypisInfo();
                 Policko aktualnePolicko = policka.get(hrac.getAktualnePolicko());
                 aktualnePolicko.vykonajAkciu(hrac);
+                if(hrac.getPeniaze() < 0){
+                    hraci.remove(index);
+                    index--;
+                }
+                index++;
             }
             System.out.println("-------------------------------");
         }
+        System.out.println("Vyhral " + hraci.get(0).getMeno());
     }
 }
