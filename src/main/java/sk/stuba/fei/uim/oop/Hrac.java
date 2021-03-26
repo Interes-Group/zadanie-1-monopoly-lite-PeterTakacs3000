@@ -29,6 +29,10 @@ public class Hrac {
         this.kolaVoVazeni = kolaVoVazeni;
     }
 
+    public int getAktualnePolicko() {
+        return aktualnePolicko;
+    }
+
     public void setAktualnePolicko(int aktualnePolicko) {
         this.aktualnePolicko = aktualnePolicko;
     }

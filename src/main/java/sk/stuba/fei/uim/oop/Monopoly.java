@@ -6,7 +6,6 @@ public class Monopoly {
 
     private ArrayList<Hrac> hraci = new ArrayList<>();
     private ArrayList<Policko> policka = new ArrayList<>();
-    private ArrayList<Karta> kartySanca = new ArrayList<>();
 
     public void nacitanieHry(){
         for(int i = 0; i < 24; i++){
@@ -21,6 +20,15 @@ public class Monopoly {
                     break;
                 case 17:
                     policka.add(new PolickoPlatbaDane());
+                case 2:
+                case 7:
+                case 13:
+                case 19:
+                    policka.add(new PolickoPlatbaDane());
+                    break;
+                default:
+                    policka.add(new PolickoNehnutelnosti());
+                    break;
             }
         }
     }
@@ -43,11 +51,12 @@ public class Monopoly {
 
     public void hraj(){
         int i = 10;
-        while (i != 0){   //hraci.size() > 1
+        while (hraci.size() > 1){
             for(var hrac : hraci){
                 hrac.hodiKockuAPosunieSa();
                 hrac.vypisInfo();
-                i--;
+                Policko aktualnePolicko = policka.get(hrac.getAktualnePolicko());
+                aktualnePolicko.vykonajAkciu(hrac);
             }
             System.out.println("-------------------------------");
         }
