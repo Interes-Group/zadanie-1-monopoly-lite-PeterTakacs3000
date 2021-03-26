@@ -61,6 +61,7 @@ public class Monopoly {
                     hraci.remove(index);
                     index--;
                 }
+                System.out.println("...");
                 index++;
             }
             System.out.println("-------------------------------");
